@@ -1,5 +1,8 @@
 /* Sun  2 Jul 16:18:33 UTC 2023 */
 
+#include <stdio.h> /* TODO move this upwards */
+extern void putch(char c);
+
 /****h* camelforth/forth.c
  * NAME
  *  forth.c
@@ -577,19 +580,15 @@ CODE(key) {
     *--psp = (unsigned int)getch();
 }
 
-extern void putch(char c);
-
 /*
 CODE(emit) {
     putch((char)*psp++);
 }
 */
 
-#include <stdio.h> /* TODO move this upwards */
-
 CODE(emit) {
-    printf("%c", *psp++);
-    // putch((char)*psp++);
+    // printf("%c", *psp++);
+    putch((char)*psp++);
 }
 
 CODE(keyq) {
